@@ -59,7 +59,8 @@ Test this on the command line by running: `HUBOT_SLACK_TOKEN=xoxb-254033918276-2
     3. Upload the secret to OpenShift: `oc create -f secret.yml`
 4. Edit the deployment config yaml to create an environment variable called HUBOT_SLACK_TOKEN from the secret.
     1. Easiest to scale the pods to zero first.
-    2. Edit the containers section to add in the env part.  The deployment yaml should looke like this:```
+    2. Edit the containers section to add in the env part.  The deployment yaml should looke like this:
+```
 ...
     spec:
       containers:
