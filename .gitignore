@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+node_modules
+.DS_Store*
+.hubot_history
+# Procfile is for Heroku so don't need this.
+Procfile
