@@ -58,8 +58,11 @@ Test this on the command line by running: `HUBOT_SLACK_TOKEN=xoxb-254033918276-2
     2. Edit the secret.yml file to include the output.
     3. Upload the secret to OpenShift: `oc create -f secret.yml`
 4. Edit the deployment config yaml to create an environment variable called HUBOT_SLACK_TOKEN from the secret.
-    1. Easiest to scale the pods to zero first.
-    2. Edit the containers section to add in the env part.  The deployment yaml should looke like this:
+    1. If there are any running pods, scale back to zero.
+    2. Edit the containers section to add in the env part.  The deployment yaml should look like the the clip below.
+    3. Scale your pods back to one.
+    4. You can confirm the env var is set by opening a terminal on the pod and running `env | grep HUBOT_SLACK_TOKEN`.
+
 ```
 ...
     spec:
@@ -74,6 +77,6 @@ Test this on the command line by running: `HUBOT_SLACK_TOKEN=xoxb-254033918276-2
             172.30.1.1:5000/hubot/hubot@sha256:f01dbcd31e7c1678a3430aabefcffe186223ea0453774eb92cf960879ac57cce
 ...
 ```
-    3. Scale your pods back to one.
+
 5. Check your pod logs for errors.
 6. Test your Hubot by going back to your Slack channel and typing: `@hubot the rules`.
